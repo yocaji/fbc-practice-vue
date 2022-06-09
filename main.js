@@ -1,4 +1,3 @@
-// localStorage persistence
 const STORAGE_KEY = 'my-todo'
 const todoStorage = {
   fetch () {
@@ -14,7 +13,6 @@ const todoStorage = {
   }
 }
 
-// app Vue instance
 const app = Vue.createApp({
   data () {
     return {
@@ -53,5 +51,4 @@ const app = Vue.createApp({
   }
 })
 
-// mount
 app.mount('.todoapp')
