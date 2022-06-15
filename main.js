@@ -22,15 +22,6 @@ const app = Vue.createApp({
     }
   },
 
-  watch: {
-    todos: {
-      handler (todos) {
-        todoStorage.save(todos)
-      },
-      deep: true
-    }
-  },
-
   methods: {
     addTodo () {
       const value = this.newTodo && this.newTodo.trim()
@@ -42,11 +33,17 @@ const app = Vue.createApp({
         title: value,
         completed: false
       })
+      this.saveTodos()
       this.newTodo = ''
     },
 
     removeTodo (todo) {
       this.todos.splice(this.todos.indexOf(todo), 1)
+      this.saveTodos()
+    },
+
+    saveTodos () {
+      todoStorage.save(this.todos)
     }
   }
 })

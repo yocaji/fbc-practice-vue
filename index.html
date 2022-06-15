@@ -31,12 +31,14 @@
           class="toggle form-check-input mt-0"
           type="checkbox"
           v-model="todo.completed"
+          @change="saveTodos()"
           />
         </span>
         <input
         class="form-control"
         type="text"
         v-model="todo.title"
+        @change="saveTodos()"
         :disabled="todo.completed"
         :class="{ 'text-decoration-line-through': todo.completed }"
         />
